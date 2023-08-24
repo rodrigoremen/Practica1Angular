@@ -1,0 +1,30 @@
+<h3 class="mt-3">new comment</h3>
+
+<form [formGroup]="formComment" (ngSubmit)="addComment()">
+    <div class="mb-2">
+        <label for="title" class="form-label">Title</label>
+        <input formControlName="title" type="text" class="form-control" id="title" autocomplete="off">
+        <span class="text-danger" *ngIf="formComment.get('title')?.invalid && formComment.get('title')?.touched">
+            <strong>Title is required</strong>
+        </span>
+    </div>
+    <div class="mb-2">
+        <label for="description" class="form-label">description</label>
+        <input formControlName="description" type="text" class="form-control" id="description" autocomplete="off">
+        <span class="text-danger" *ngIf="formComment.get('description')?.invalid && formComment.get('description')?.touched">
+            <strong>description is required</strong>
+        </span>
+    </div>
+    <div class="mb-2">
+        <label for="author" class="form-label">author</label>
+        <input formControlName="author" type="text" class="form-control" id="author" autocomplete="off">
+        <span class="text-danger" *ngIf="formComment.get('author')?.invalid && formComment.get('author')?.touched">
+            <strong>author is required</strong>
+        </span>
+    </div>
+    <div>
+        <button class="btn btn-secondary" routerLink="/">come back</button>
+    <button type="submit" [disabled]="formComment.invalid" class="btn btn-success float-end">register</button>
+    </div>
+    
+</form>
